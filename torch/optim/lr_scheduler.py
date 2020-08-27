@@ -171,6 +171,9 @@ class _LRScheduler(object):
 class LambdaLR(_LRScheduler):
     """Sets the learning rate of each parameter group to the initial lr
     times a given function. When last_epoch=-1, sets initial lr as lr.
+    
+    .. math::
+        lr_i = lr_0 * lambda(i)
 
     Args:
         optimizer (Optimizer): Wrapped optimizer.
@@ -255,6 +258,9 @@ class LambdaLR(_LRScheduler):
 class MultiplicativeLR(_LRScheduler):
     """Multiply the learning rate of each parameter group by the factor given
     in the specified function. When last_epoch=-1, sets initial lr as lr.
+    
+    .. math::
+        lr_i+1 = lr_i * lambda(i)
 
     Args:
         optimizer (Optimizer): Wrapped optimizer.
